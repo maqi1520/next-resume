@@ -1,0 +1,46 @@
+import React, { ReactElement } from "react";
+import { View, Text } from "@react-pdf/renderer";
+import { styles as s } from "./style";
+
+interface Item {
+  company: string;
+  department: string;
+  time: string[];
+  desc: string;
+}
+
+interface Props {
+  data: Item[];
+}
+
+export default function WorkList({ data }: Props): ReactElement {
+  return (
+    <View style={s.section}>
+      <View style={s.section_header}>
+        <Text>工作经历</Text>
+      </View>
+      <View>
+        {data.map((item, index) => {
+          return (
+            <View style={s.mb12} key={index}>
+              <View style={s.flex_row}>
+                <View style={s.flex_row}>
+                  <Text style={s.company}>{item.company}</Text>
+                  <Text style={s.department}>{item.department}</Text>
+                </View>
+                <View style={s.flex_row}>
+                  {Array.isArray(item.time) && (
+                    <Text>{item.time.join("/")}</Text>
+                  )}
+                </View>
+              </View>
+              <View style={s.mt4}>
+                <Text>{item.desc}</Text>
+              </View>
+            </View>
+          );
+        })}
+      </View>
+    </View>
+  );
+}
