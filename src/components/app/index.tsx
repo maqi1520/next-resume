@@ -41,7 +41,7 @@ export default function App({}: Props) {
           <div className="space-x-2">
             <PDFDownloadLink
               document={<Preview state={state} />}
-              fileName={`${state.profile.name}的简历.pdf`}
+              fileName={`${state.profile.nam}的简历.pdf`}
             >
               {({ loading }) => <Button type="primary">下载</Button>}
             </PDFDownloadLink>
