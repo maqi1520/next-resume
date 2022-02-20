@@ -14,7 +14,14 @@ import Preview from "../preview";
 type Props = {};
 
 export default function App({}: Props) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  let initial = initialState;
+  try {
+    const local = JSON.parse(localStorage.getItem("refuseme_data"));
+    if (local) {
+      initial = local;
+    }
+  } catch (error) {}
+  const [state, dispatch] = useReducer(reducer, initial);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -39,10 +46,13 @@ export default function App({}: Props) {
               {({ loading }) => <Button type="primary">下载</Button>}
             </PDFDownloadLink>
 
-            <Button type="primary" ghost>
-              预览
+            <Button
+              onClick={() => dispatch({ type: "restore" })}
+              type="primary"
+              ghost
+            >
+              重置
             </Button>
-            <Button>重置</Button>
           </div>
         </div>
         <Editor />

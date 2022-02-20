@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import get from "lodash.get";
 import map from "lodash.map";
-import { Form, Input, InputNumber, Button, Switch, Card } from "antd";
+import { Form, Input, InputNumber, Button, Switch, Card, Radio } from "antd";
 import { FormItemProps } from "antd/lib/form";
 import { DeleteOutlined } from "@ant-design/icons";
+import { themes } from "./conifg";
 
 type ItemConfig = {
   type: string /** 组件类型 */;
@@ -60,6 +61,16 @@ function Range({
 // eslint-disable-next-line react/display-name
 const FormItemComponentMap = (type: string) => (props: FProps) => {
   switch (type) {
+    case "theme":
+      return (
+        <Radio.Group {...props} value={props.value} buttonStyle="solid">
+          {themes.map((t) => (
+            <Radio.Button key={t.key} value={t.key}>
+              {t.name}
+            </Radio.Button>
+          ))}
+        </Radio.Group>
+      );
     case "checkbox":
       return <Switch {...props} checked={props.value} />;
     case "input":

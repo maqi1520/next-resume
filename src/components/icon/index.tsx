@@ -5,13 +5,17 @@ import { styles as s } from "../preview/style";
 export default function Icon({
   d,
   color = "#fff",
+  fill = "none",
+  style = s.profile_icon,
 }: {
   d: string;
   color?: string;
+  fill?: string;
+  style?: any;
 }) {
   return (
-    <Svg style={s.profile_icon} viewBox="0 0 24 24">
-      <Path fill="none" stroke={color} d={d}></Path>
+    <Svg style={style} viewBox="0 0 24 24">
+      <Path fill={fill} stroke={color} d={d}></Path>
     </Svg>
   );
 }

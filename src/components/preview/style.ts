@@ -37,6 +37,11 @@ export const styles = StyleSheet.create({
     width: 90,
     height: 90,
   },
+  avatar_rect: {
+    border: "2px solid  #fff",
+    width: 90,
+    height: 90,
+  },
   profile_list: {},
   profile_name: {
     marginTop: "20px",
@@ -59,6 +64,12 @@ export const styles = StyleSheet.create({
     width: 14,
     height: 14,
     marginRight: 4,
+  },
+  company_icon: {
+    width: 14,
+    height: 14,
+    marginRight: 4,
+    marginBottom: 3,
   },
   profile_item: {
     fontSize: 10,
@@ -130,6 +141,7 @@ export const styles = StyleSheet.create({
   },
   company: {
     fontSize: 14,
+    marginBottom: -2,
   },
   department: {
     color: "#666",
@@ -139,12 +151,10 @@ export const styles = StyleSheet.create({
     backgroundColor: "#8bc34a",
     color: "#fff",
     borderRadius: "2px",
-    paddingLeft: 4,
-    paddingRight: 4,
+    paddingLeft: 6,
+    paddingRight: 6,
     height: 20,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    paddingTop: 4,
   },
   mt4: {
     marginTop: 4,

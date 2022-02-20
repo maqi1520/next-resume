@@ -11,7 +11,7 @@ interface Props {
     mobile: string;
     github: string;
     home: string;
-    workExpYear: number;
+    workExpYear?: number;
     workPlace: string;
     positionTitle: string;
   };

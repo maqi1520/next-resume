@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import { View, Text } from "@react-pdf/renderer";
 import { styles as s } from "./style";
+import Icon from "../icon";
 
 interface Item {
   company: string;
@@ -11,12 +12,18 @@ interface Item {
 
 interface Props {
   data: Item[];
+  theme: { primaryColor: string; secondaryColor: string };
 }
 
-export default function WorkList({ data }: Props): ReactElement {
+export default function WorkList({ data, theme }: Props): ReactElement {
   return (
     <View style={s.section}>
-      <View style={s.section_header}>
+      <View
+        style={{
+          ...s.section_header,
+          borderBottom: `2px solid ${theme.primaryColor}`,
+        }}
+      >
         <Text>工作经历</Text>
       </View>
       <View>
@@ -25,6 +32,13 @@ export default function WorkList({ data }: Props): ReactElement {
             <View style={s.mb12} key={index}>
               <View style={s.flex_row}>
                 <View style={s.flex_row}>
+                  <Icon
+                    style={s.company_icon}
+                    color={theme.primaryColor}
+                    fill={theme.primaryColor}
+                    d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                  />
+
                   <Text style={s.company}>{item.company}</Text>
                   <Text style={s.department}>{item.department}</Text>
                 </View>
