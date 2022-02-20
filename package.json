@@ -17,6 +17,7 @@
     "buffer": "^6.0.3",
     "iconv-lite": "^0.6.3",
     "lodash": "^4.17.21",
+    "lodash.debounce": "^4.0.8",
     "lodash.get": "^4.4.2",
     "lodash.map": "^4.6.0",
     "next": "12.0.8",

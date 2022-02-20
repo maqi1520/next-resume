@@ -14,7 +14,14 @@ import Preview from "../preview";
 type Props = {};
 
 export default function App({}: Props) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  let initial = initialState;
+  try {
+    const local = JSON.parse(localStorage.getItem("refuseme_data"));
+    if (local) {
+      initial = local;
+    }
+  } catch (error) {}
+  const [state, dispatch] = useReducer(reducer, initial);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -34,15 +41,18 @@ export default function App({}: Props) {
           <div className="space-x-2">
             <PDFDownloadLink
               document={<Preview state={state} />}
-              fileName={`${state.profile.name}的简历.pdf`}
+              fileName={`${state.profile.nam}的简历.pdf`}
             >
               {({ loading }) => <Button type="primary">下载</Button>}
             </PDFDownloadLink>
 
-            <Button type="primary" ghost>
-              预览
+            <Button
+              onClick={() => dispatch({ type: "restore" })}
+              type="primary"
+              ghost
+            >
+              重置
             </Button>
-            <Button>重置</Button>
           </div>
         </div>
         <Editor />
