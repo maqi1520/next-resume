@@ -141,7 +141,7 @@ export const styles = StyleSheet.create({
   },
   company: {
     fontSize: 14,
-    marginBottom: -2,
+    marginBottom: -3,
   },
   department: {
     color: "#666",

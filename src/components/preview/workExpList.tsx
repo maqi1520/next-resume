@@ -24,7 +24,7 @@ export default function WorkList({ data, theme }: Props): ReactElement {
           borderBottom: `2px solid ${theme.primaryColor}`,
         }}
       >
-        <Text>工作经历</Text>
+        <Text style={{ color: theme.primaryColor }}>工作经历</Text>
       </View>
       <View>
         {data.map((item, index) => {

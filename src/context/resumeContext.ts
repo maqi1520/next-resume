@@ -3,8 +3,7 @@ import React from "react";
 export const initialState = {
   profile: {
     name: "狂奔滴小马",
-    about:
-      '关注公众号"JS酷"\n回复"简历"获取源码\n分享 Javascript 热门\n框架，探索 web 极致\n优化体验。',
+    about: "分享 Javascript 热门\n框架，探索 web 极致\n优化体验。",
     email: "maqi1520@qq.com",
     mobile: "186****1818",
     github: "https://github.com/maqi1520",

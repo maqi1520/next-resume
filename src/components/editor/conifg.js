@@ -175,7 +175,7 @@ export const themes = [
     key: "1",
     name: "墨绿",
     primaryColor: "#084c41",
-    secondaryColor: "#8bc34a",
+    secondaryColor: "#B1D0E0",
   },
 
   {
@@ -193,13 +193,19 @@ export const themes = [
   {
     key: "4",
     name: "凝夜紫",
-    primaryColor: "#d89cf6",
-    secondaryColor: "#f4eeff",
+    primaryColor: "#B983FF",
+    secondaryColor: "#F3F1F5",
   },
   {
     key: "5",
     name: "绿意",
     primaryColor: "#35b378",
     secondaryColor: "rgba(127, 226, 159, 0.48)",
+  },
+  {
+    key: "6",
+    name: "极客黑",
+    primaryColor: "#141E27",
+    secondaryColor: "#E0DDAA",
   },
 ];

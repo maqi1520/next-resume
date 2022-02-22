@@ -4,6 +4,9 @@
 html {
   font-size: 16px;
 }
+iframe {
+  border: 0;
+}
 .bg-gray-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
@@ -52,7 +55,8 @@ html {
 }
 .header {
   padding: 24px;
-  box-shadow: 0 2px 8px #f0f1f2;
+  @apply shadow;
+  overflow: hidden;
 }
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -63,4 +67,13 @@ html {
   position: absolute;
   right: 12px;
   top: 40%;
+}
+.relative {
+  position: relative;
+}
+.tip {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(-50%, 0);
 }

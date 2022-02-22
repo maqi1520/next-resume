@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, useState } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Button } from "antd";
-import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import { PDFDownloadLink, PDFViewer, Font } from "@react-pdf/renderer";
 import {
   ResumeContext,
   initialState,
@@ -24,9 +24,11 @@ export default function App({}: Props) {
   const [state, dispatch] = useReducer(reducer, initial);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => {
+    Font.load({
+      fontFamily: "Alibaba-PuHuiTi-Light",
+    }).then(() => {
       setLoading(false);
-    }, 1000);
+    });
   });
   return (
     <ResumeContext.Provider
@@ -35,13 +37,13 @@ export default function App({}: Props) {
         dispatch,
       }}
     >
-      <div className="flex-1">
+      <div className="flex-1 relative">
         <div className="header flex justify-between">
           <h1 className="logo">在线简历生成器</h1>
           <div className="space-x-2">
             <PDFDownloadLink
               document={<Preview state={state} />}
-              fileName={`${state.profile.nam}的简历.pdf`}
+              fileName={`${state.profile.name}的简历.pdf`}
             >
               {({ loading }) => <Button type="primary">下载</Button>}
             </PDFDownloadLink>
@@ -56,6 +58,9 @@ export default function App({}: Props) {
           </div>
         </div>
         <Editor />
+        <div className="tip">
+          关注公众号&quot;JS酷&quot;，回复&quot;简历&quot;获取源码
+        </div>
       </div>
       <div className="flex-1 bg-gray-800 flex justify-center items-center">
         {loading ? (

@@ -25,7 +25,7 @@ export default function ProjectList({ data, theme }: Props): ReactElement {
           borderBottom: `2px solid ${theme.primaryColor}`,
         }}
       >
-        <Text>项目经历</Text>
+        <Text style={{ color: theme.primaryColor }}>项目经历</Text>
       </View>
       <View>
         {data.map((item, index) => {
