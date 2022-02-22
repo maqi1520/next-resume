@@ -34,6 +34,7 @@ iframe {
   height: calc(100vh - 85px);
   overflow-y: auto;
   padding-top: 24px;
+  padding-bottom: 38px;
   padding-right: 24px;
 }
 
@@ -72,8 +73,13 @@ iframe {
   position: relative;
 }
 .tip {
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  background: #efefef;
   position: absolute;
-  left: 50%;
-  bottom: 10px;
-  transform: translate(-50%, 0);
+  left: 0;
+  bottom: 0;
+  color: #666;
 }
