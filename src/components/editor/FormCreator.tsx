@@ -24,7 +24,7 @@ type Props = {
   value: {
     [key: string]: any;
   };
-  onChange: (v: any) => void;
+  onChange: (v: any, immediately?: boolean) => void;
 };
 
 type FProps = { value: any; onChange?: (v) => void };
@@ -92,23 +92,22 @@ export const FormCreator: React.FC<Props> = ({
   onChange,
   config,
 }) => {
-  const [fields, setFields] = useState([]);
-
-  useEffect(() => {
-    const datas = Object.keys(value || {}).map((d) => ({
-      name: [d],
-      value: value[d],
-    }));
-    setFields(datas);
-  }, [value]);
-
   const handleChange = (values: any) => {
-    onChange({
-      [name]: { ...value, ...values },
-    });
-  };
-  const formProps = {
-    onValuesChange: handleChange,
+    let immediately = false;
+    const keys = Object.keys(values);
+    if (
+      keys.includes("theme") ||
+      keys.includes("display") ||
+      keys.includes("circle")
+    ) {
+      immediately = true;
+    }
+    onChange(
+      {
+        [name]: { ...value, ...values },
+      },
+      immediately
+    );
   };
 
   return (
@@ -117,8 +116,8 @@ export const FormCreator: React.FC<Props> = ({
         <Form
           labelCol={{ span: 4 }}
           initialValues={value}
-          fields={fields}
-          {...formProps}
+          autoComplete="off"
+          onValuesChange={handleChange}
         >
           {map(config, (c) => {
             return (
@@ -148,7 +147,7 @@ type ListProps = {
   value: {
     [key: string]: any;
   };
-  onChange: (v: any) => void;
+  onChange: (v: any, immediately?: boolean) => void;
 };
 
 export const FormListCreator: React.FC<ListProps> = ({
@@ -165,6 +164,7 @@ export const FormListCreator: React.FC<ListProps> = ({
   return (
     <Form
       className="form-creator"
+      autoComplete="off"
       initialValues={value}
       onValuesChange={onValuesChange}
     >

@@ -17,8 +17,15 @@ export default function Editor() {
     }, 1000),
     []
   );
-  const handleChange = (value) => {
-    handleSave(value);
+  const handleChange = (value, immediately) => {
+    if (immediately) {
+      dispatch({
+        type: "save",
+        payload: value,
+      });
+    } else {
+      handleSave(value);
+    }
   };
   return (
     <div>
