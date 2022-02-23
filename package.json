@@ -34,6 +34,12 @@
     "@types/react": "^17.0.38",
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.8",
+    "git-cz": "^4.8.0",
     "typescript": "^4.5.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/git-cz"
+    }
   }
 }
