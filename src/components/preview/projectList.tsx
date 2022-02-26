@@ -39,9 +39,9 @@ export default function ProjectList({ data, theme }: Props): ReactElement {
                     d="M13 5l7 7-7 7M5 5l7 7-7 7"
                   />
                   <Text style={s.company}>{item.name}</Text>
-                  {Array.isArray(item.time) && (
+                  {Array.isArray(item.time) && item.time.join("") !== "" ? (
                     <Text style={s.department}>{item.time.join("/")}</Text>
-                  )}
+                  ) : null}
                 </View>
                 <View
                   style={{

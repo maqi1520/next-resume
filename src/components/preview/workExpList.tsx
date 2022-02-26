@@ -43,9 +43,9 @@ export default function WorkList({ data, theme }: Props): ReactElement {
                   <Text style={s.department}>{item.department}</Text>
                 </View>
                 <View style={s.flex_row}>
-                  {Array.isArray(item.time) && (
+                  {Array.isArray(item.time) && item.time.join("") !== "" ? (
                     <Text>{item.time.join("/")}</Text>
-                  )}
+                  ) : null}
                 </View>
               </View>
               <View style={s.mt4}>

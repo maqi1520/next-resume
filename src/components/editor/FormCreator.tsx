@@ -39,6 +39,7 @@ function Range({
   const handleChange = (v, index) => {
     if (index === 0) {
       onChange([v, value[1]]);
+      return;
     }
     onChange([value[0], v]);
   };
@@ -157,8 +158,6 @@ export const FormListCreator: React.FC<ListProps> = ({
   value,
 }) => {
   const onValuesChange = (value, allValues) => {
-    console.log(allValues);
-
     onChange(allValues);
   };
   return (
